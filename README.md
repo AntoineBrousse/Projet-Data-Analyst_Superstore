@@ -100,15 +100,6 @@ superstore-project/
 
 ---
 
-## Comment lancer le projet
-
-1. **Importer le fichier Superstore dans PostgreSQL / SQLite.**
-2. **Créer la vue principale `v_superstore_complete` à l’aide du script fourni.**
-3. **Ouvrir le notebook `superstore_analysis.ipynb` dans Jupyter.**
-4. **Exécuter les cellules SQL pour produire les résultats et interprétations.**
-
----
-
 ## Conclusion
 
 Ce projet a permis de mettre en évidence plusieurs leviers de performance commerciale pour le Superstore. Grâce à l'analyse combinée en SQL et Power BI, nous avons pu :
