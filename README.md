@@ -112,5 +112,5 @@ Cette approche démontre la valeur de la visualisation interactive et de l’exp
 
 ## Contact
 
-> Réalisé par Brousse Antoine – Étudiant en Master Économétrie  
+> Réalisé par Brousse Antoine
 > [LinkedIn](https://www.linkedin.com/in/brousseantoine/) | [email](brousse.antoine14@gmail.com)
