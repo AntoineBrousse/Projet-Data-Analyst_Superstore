@@ -95,7 +95,7 @@ superstore-project/
 
 - **Rééquilibrer les remises** sur les sous-catégories à faible marge.
 - **Mieux cibler les clients RFM “VIP” ou “Fidèles”** avec des offres personnalisées.
-- - **Surveiller les performances par région et état**, notamment dans le Sud, où certaines zones sont déficitaires.
+- **Surveiller les performances par région et état**, notamment dans le Sud, où certaines zones sont déficitaires.
 
 ---
 
