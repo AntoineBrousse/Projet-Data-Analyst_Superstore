@@ -15,6 +15,8 @@ Le rapport est structuré en **4 pages** principales :
 
 Un navigateur de page est disponible en bas à gauche pour parcourir les différentes pages.
 
+![Page_1](/images/Page_1.png)
+ 
 ---
 ## Travail réalisé dans Power BI 
 
@@ -55,6 +57,8 @@ Conception d'un modèle relationnel propre et scalable basé sur une structure e
 - Respect d’une modélisation en étoile (fait + dimensions) pour assurer des performances optimales.  
 - Création manuelle de relations (`1:*` ou plusieurs-à-un) entre les tables, avec contrôle du sens du filtrage.  
 - Séparation des tables de données brutes et de calculs métiers (DAX) pour une logique plus claire et durable.  
+
+![Schéma](/images/Schéma.png)
 
 
 ### Création de mesures DAX
