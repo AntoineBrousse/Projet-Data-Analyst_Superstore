@@ -93,10 +93,9 @@ superstore-project/
 
 ## Recommandations
 
-- Éviter les remises > 30%, très destructrices de marge
-- Cibler les segments Corporate et Consumer pour maximiser le profit
-- Réduire les stocks sur certaines sous-catégories à faible marge
-- Améliorer les délais de livraison pour la région Sud
+- **Rééquilibrer les remises** sur les sous-catégories à faible marge.
+- **Mieux cibler les clients RFM “VIP” ou “Fidèles”** avec des offres personnalisées.
+- - **Surveiller les performances par région et état**, notamment dans le Sud, où certaines zones sont déficitaires.
 
 ---
 
