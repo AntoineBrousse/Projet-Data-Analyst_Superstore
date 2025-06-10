@@ -15,7 +15,7 @@ Le rapport est structuré en **4 pages** principales :
 
 Un navigateur de page est disponible en bas à gauche pour parcourir les différentes pages.
 
-Photo de la 1ère page du dashboard
+1ère page du dashboard :
 ![Page_1](/images/Page_1.png)
  
 ---
