@@ -13,9 +13,60 @@ Le rapport est structuré en **4 pages** principales :
 3. **Analyse géographique** : Cartes des performances par État et ville, top régions.
 4. **Logistique & livraison** : Délai moyen, modes de livraison, volume de commandes, performance par mode.
 
----
+Un navigateur de page est disponible en bas à gauche pour parcourir les différentes pages.
 
-## Filtres et interactions
+---
+## Travail réalisé dans Power BI 
+
+### Import des données  
+
+Les données ont été importées dans Power BI via une connexion directe à une base PostgreSQL locale, où les tables avaient été préalablement créées et alimentées à partir du jeu de données Superstore.  
+
+**Connexion PostgreSQL → Power BI**
+- Mise en place d’une connexion en direct entre Power BI et PostgreSQL pour récupérer dynamiquement les données de la base.  
+- Cela permet de maintenir une logique centralisée : les requêtes SQL restent gérées côté base, assurant une meilleure scalabilité du projet.  
+
+**Attribution des formats temporels**
+- Les colonnes `order_date` et `ship_date` ont été converties en type **Date** dans Power BI.  
+- Cela permet d’utiliser des fonctions temporelles (mois, années, trimestres) et de construire des courbes temporelles cohérentes dans les visuels.  
+
+**Paramétrage géographique**  
+- La colonne `region` a été assignée à la catégorie de données **"Région"** (*Data Category: Region*) dans Power BI.  
+- Afin d'activer automatiquement la géolocalisation dans les cartes Power BI.  
+
+
+### Relations et tables  
+Conception d'un modèle relationnel propre et scalable basé sur une structure en étoile, afin d’optimiser la lisibilité, les performances et la flexibilité du rapport Power BI.  
+**Fait : `fact_order_details`**  
+- Table centrale contenant les ventes, profits, quantités, remises.  
+- Reliée aux dimensions via les clés `order_id` et `product_id`.  
+
+**Dimensions :**  
+- `dim_orders` : informations de commandes, dates, livraison, mode d’expédition.  
+- `dim_customers` : clients, segments, régions.  
+- `dim_products` : catégories, sous-catégories, identifiants produit.  
+- `public.v_rfm_segmentation` : table personnalisée pour l’analyse RFM.  
+
+**Table de mesures :**  
+- Création d’une table dédiée (`Table_mesures`) pour centraliser toutes les mesures DAX (CA, profit moyen, remises moyennes, etc.).  
+- Pour faciliter la maintenance, la lisibilité du modèle et la réutilisation des calculs dans l’ensemble du rapport.  
+
+**Modèle**
+- Respect d’une modélisation en étoile (fait + dimensions) pour assurer des performances optimales.  
+- Création manuelle de relations (`1:*` ou plusieurs-à-un) entre les tables, avec contrôle du sens du filtrage.  
+- Séparation des tables de données brutes et de calculs métiers (DAX) pour une logique plus claire et durable.  
+
+
+### Création de mesures DAX
+
+Construction d'une table avec plusieurs mesures DAX personnalisées pour calculer :
+- Le chiffre d’affaires total
+- Le profit total
+- Le taux de remise moyen
+- Le profit moyen par commande/client
+Ces mesures permettent de standardiser les calculs et de les utiliser dynamiquement dans plusieurs visuels.
+
+### Filtres et interactions
 
 Des filtres globaux sont disponibles sur :
 - **Le profit ou le CA** Les graphiques changent en fonction du choix,
@@ -26,9 +77,7 @@ Des filtres globaux sont disponibles sur :
 
 Les pages sont interactives, permettant de croiser les dimensions (ex : profit par sous-catégorie dans une année donnée).
 
----
-
-## Choix de visualisations
+### Choix de visualisations
 
 - **Cards** pour les KPIs (CA, Profit, Quantité, Remise, etc.),
 - **Lignes temporelles** pour les évolutions mensuelles,
@@ -64,12 +113,4 @@ Les pages sont interactives, permettant de croiser les dimensions (ex : profit p
 - **Standard Class** est le mode de livraison le plus utilisé (59,77 % des commandes).
 - La majorité des commandes passent par une livraison économique, ce qui peut impacter les délais mais réduire les coûts.
 - Bien que le mode de livraison **Standard Class** concentre les volumes, les profits progressent globalement sur tous les modes, surtout en 2017. On peut supposer une amélioration de la rentabilité logistique.
-
----
-
-## Améliorations possibles
-
-- Ajouter une page d’analyse prédictive (prévision de ventes ou de délais).
-- Intégrer une analyse du coût logistique par mode de livraison.
-- Mettre en place un score de performance globale par client ou produit.
 
